@@ -98,16 +98,17 @@ jobs:
           push: true
           tags: marckraw/town-store-api:latest
 
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            docker pull marckraw/town-store-api:latest
+            docker stop town-store-api || true
+            docker rm town-store-api || true
+            docker run -d --name town-store-api -p 20152:20152 marckraw/town-store-api:latest
 
-#      - name: Deploy to VPS
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.VPS_IP }}
-#          username: ${{ secrets.VPS_USERNAME }}
-#          key: ${{ secrets.VPS_SSH_KEY }}
-#          script: |
-#            docker pull user/myapp:latest
-#            docker stop myapp || true
-#            docker rm myapp || true
-#            docker run -d --name myapp -p 80:3000 user/myapp:latest
 ```
