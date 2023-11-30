@@ -11,6 +11,12 @@ I'm using mikr.us servers for hobby projects as cost effective learning vps plat
 3. Install `fnm` for installing node versions. https://github.com/Schniz/fnm?tab=readme-ov-file#using-a-script-macoslinux
 4. Install newest node version
 5. Install `pnpm` using script from https://pnpm.io/installation#using-npm
+6. Run commands on the server (for now manually)
+```bash
+$ docker pull marckraw/town-store-api:latest (example)
+$ docker run -p 20152:20152 -d marckraw/town-store-api:latest (example)
+```
+
 
 
 
