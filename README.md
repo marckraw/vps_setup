@@ -17,6 +17,9 @@ $ docker pull marckraw/town-store-api:latest (example)
 $ docker run -p 20152:20152 -d marckraw/town-store-api:latest (example)
 ```
 
+## Making CI/CD able to build, push, pull and run docker images
+1. https://nbailey.ca/post/github-actions-ssh/
+
 
 
 
