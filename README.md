@@ -21,6 +21,11 @@ $ docker run -p 20152:20152 -d marckraw/town-store-api:latest (example)
 1. https://nbailey.ca/post/github-actions-ssh/
 Secrets needed in repository for github action to work: 
 ![img.png](img.png)
+2. In server i have `/dev/env-files` folder containing folder matching projects server, with their env variables (that's fast and basic solution for now)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
 
 ## Setting up docker images
 
