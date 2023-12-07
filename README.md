@@ -19,9 +19,8 @@ $ docker run -p 20152:20152 -d marckraw/town-store-api:latest (example)
 
 ## Making CI/CD able to build, push, pull and run docker images
 1. https://nbailey.ca/post/github-actions-ssh/
-
-
-
+Secrets needed in repository for github action to work: 
+![img.png](img.png)
 
 ## Setting up docker images
 
@@ -80,6 +79,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -107,6 +107,7 @@ jobs:
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.0.0
         with:
+          command_timeout: 30m
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
